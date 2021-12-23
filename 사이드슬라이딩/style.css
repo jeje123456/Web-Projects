@@ -52,9 +52,26 @@ body {
   bottom: 20px;
   left: 20px;
   margin: 0; /*제목태그는 늘 마진이 있는데 그걸 삭제*/
-  opacity: 0; /*투명도 (안보임) 0~1 (보임)*/ /*처음에는 안보여주고 클리하면 보이게*/
+  opacity: 0; /*투명도 (안보임) 0~1 (보임)*/
+  /*처음에는 안보여주고 클리하면 보이게 -> 자바스크립트로 동작*/
 }
 /* 패널 클래스와 액티브 클래스가 동시에 있을 경우*/
 .panel.active {
   flex: 5; /*얘만 비율 : 5로 변경*/
+}
+.panel.active h3 {
+  opacity: 1; /*글자가 보이게*/
+  transition: opacity 0.3s ease-in;
+}
+/*미디어 쿼리 사용해서 사용화면이 500이하만 적용됨*/
+@media (max-width: 500px) {
+  .container {
+    /*화면이 작을때는 좌우 공백없이 화면을 100% 너비로*/
+    width: 100vw;
+  }
+  /*화면이 작을때는 안보이게*/
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none; /* 4번째랑 5번째 안보이게*/
+  }
 }
