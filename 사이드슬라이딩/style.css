@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'GowunBatang-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+/* '*'은 전체 태그에 적용 */
+* {
+  box-sizing: border-box;
+  /* padding말고 border-box를 기준으로 하겠다. (검색해보자) */
+}
+
+body {
+  font-family: 'GowunBatang-Regular', serif;
+  display: flex; /* 하위 태그들을 정렬 : CSS로 화면에 배치하는 것(float 안씀) */
+  /* flex-direction: column;  전체 세로 정렬 : 없으면 가로방향  */
+  justify-content: center; /* 가로 정렬 */
+  align-items: center; /* 세로 정렬 */
+  height: 100vh; /* vh는 화면의 % -> 100vh = 화면의 100% */
+  overflow: hidden; /*  */
+  background-color: rgb(207, 227, 250);
+}
+/* h2 {
+  font-family: 'Roboto Slab', serif;
+} */
+.container {
+  display: flex; /* flex기본은 가로정렬, 사진들이 모이게됨(붙게됨) */
+  width: 90vw; /*화면의 90% 너비*/
+}
+/* 사진 하나하나가 모두 panel임 */
+.panel {
+  /* 아래 3가지는 기본으로 설정함 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px; /* 사진 모서리 라운딩 */
+  color: white; /*글자색*/
+  cursor: pointer; /*마우스 올리면 선택할수 있게 커서 생김*/
+  flex: 0.5; /*flex의 비율*/
+  margin: 10px; /*사진들 사이에 마진 생김*/
+  position: relative; /*포지션 기준 : 글자의 위치를 잡을때 사용*/
+  transition: all 0.7s ease-in; /*transition은 모든 변화에 시간 0.7초를 줌*/
+}
+/*글자설정*/
+.panel h3 {
+  font-size: 20px;
+  position: absolute; /*이렇게하면 기준을 중심으로 이동할 수 있다.*/
+  bottom: 20px;
+  left: 20px;
+  margin: 0; /*제목태그는 늘 마진이 있는데 그걸 삭제*/
+  opacity: 0; /*투명도 (안보임) 0~1 (보임)*/ /*처음에는 안보여주고 클리하면 보이게*/
+}
+/* 패널 클래스와 액티브 클래스가 동시에 있을 경우*/
+.panel.active {
+  flex: 5; /*얘만 비율 : 5로 변경*/
+}
