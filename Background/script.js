@@ -15,7 +15,8 @@ function set() {
   // h1.textContent = '클릭했음';
   // console.log('클릭했음');
   body.style.background =
-    'linear-gradient(to right, ' + color1.value + ', ' + color2.value + ')';
+    // 'linear-gradient(to right, ' + color1.value + ', ' + color2.value + ')';
+    'linear-gradient(45deg, ' + color1.value + ', ' + color2.value + ')';
 }
 
 // color1.addEventListener('이벤트 종류',함수)

@@ -5,8 +5,13 @@ body {
   text-align: center; /* 글자 가운데 정렬 */
   text-transform: uppercase; /* 대문자로 표시 */
   letter-spacing: 0.5em; /* 글자와 글자 사이 간격 */
-  top: 15%;
+  /* top: 15%; */
   background: linear-gradient(to right, red, yellow); /* Standard syntax */
+  /* 위치변경 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 h1 {
