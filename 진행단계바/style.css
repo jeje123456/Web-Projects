@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+/* css의 변수 : 색깔 등을 자주 사용할 경우 변수설정 */
+:root {
+  --line-fill: #3498db;
+  --line-empty: #e0e0e0;
+}
+
+* {
+  /* '*'은 전체 태그에 적용 */
+  box-sizing: border-box;
+  /* padding말고 border-box를 기준으로 하겠다. (검색해보자) */
+}
+
+body {
+  background-color: #f6f7fb;
+  font-family: 'Muli', monospace;
+  display: flex; /* 하위 태그들을 정렬 : CSS로 화면에 배치하는 것(float 안씀) */
+  justify-content: center; /* 가로 정렬 */
+  align-items: center; /* 세로 정렬 */
+  height: 100vh; /* vh는 화면의 % -> 100vh = 화면의 100% */
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex; /* 숫자가 가로로 정렬됨 */
+  justify-content: space-between; /*숫자 간격 벌려짐*/
+  position: relative; /*기준*/
+  margin-bottom: 30px; /*버튼과 숫자의 간격*/
+  min-width: 350px; /*숫자 container의 가로길이*/
+}
+
+.circle {
+  background-color: white;
+  color: #999; /*헥사16진수 #FFF = #FFFFFF 흰색, #000 = #000000 검정색*/
+  border-radius: 50%; /*원이됨*/
+  height: 30px;
+  width: 30px; /*가로길이 세로길이 같게 해야 동그란 원이됨*/
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 옆의 3개로 글자를 원의 가운데에 정렬*/
+  border: 3px solid var(--line-empty); /*원에 회색 테두리*/
+  transition: all 0.4s ease; /*모든 css변화는 0.4초, 천천히 */
+}
+/* 서클과 액티브 클래스가 동시에 있을 경우 */
+.circle.active {
+  border-color: var(--line-fill); /* 원의 border 색상 변경 */
+}
+
+/* 프로그래스 진행상태바 */
+.progress-container::before {
+  /* ::before는 해당 태그 앞에 content로 뭔가 넣는다(이모티콘넣으면 들어감) */
+  content: ''; /*빈 content 생성*/
+  background-color: var(--line-empty);
+  position: absolute;
+  top: 50%; /* container의 50% 다음에 위치 -> 보정해서 살짝 올려줘야됨*/
+  left: 0;
+  transform: translateY(-50%); /*보정 -> 딱 가운데로 이동*/
+  height: 4px;
+  width: 100%;
+  z-index: -1; /*겹쳤을때 기본 z인덱스는 0인데 그 아래로 보냄*/
+}
+.progress {
+  /*막대기가 1번앞에 튀어나온거 1번에 맞춤*/
+  background-color: var(--line-fill);
+  position: absolute; /*기준에 따라 위치 */
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%; /*자바스크립트로 버튼 누를때마다 퍼센트가 바뀌게 설정함*/
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+
+/* 버튼 */
+.btn {
+  background-color: var(--line-fill);
+  color: white;
+  border: 0; /*버튼에 border있으면 검은색 외곽선 있어서 삭제*/
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 8px 30px; /* 패딩, 마진 값이 2개일때 : 1.위아래(8), 2.좌우(30) */
+  margin: 5px; /* 위아래좌우 모두 5px */
+  font-size: 14px;
+}
+/*버튼 눌렀을때*/
+.btn:active {
+  transform: scale(0.98); /* 버튼을 누르면 active => 사이즈를 98%로 작아짐 */
+}
+
+.btn:focus {
+  outline: 0; /*그냥 보기 좋으라고 아웃라인 제거*/
+}
+
+.btn:disabled {
+  background-color: var(--line-empty);
+  cursor: not-allowed;
+}
