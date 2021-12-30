@@ -12,6 +12,7 @@ body {
   overflow-x: hidden;
   margin: 0;
 }
+
 .container {
   background-color: #fafafa;
   width: 100vw; /*가로 100%로 화면에 꽉 차게*/
