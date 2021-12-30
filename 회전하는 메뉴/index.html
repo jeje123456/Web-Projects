@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--viewport : 화면크기에 따라서 반응형으로 만들때 사용되는 것  -->
+    <!-- 아이콘 사용을 위해서 폰트어썸에서 CSS 링크 연결 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>내 프로젝트</title>
+  </head>
+  <body>
+    <!-- .container 하면 자동생성 -->
+    <div class="container">
+      <!-- 왼쪽 상단 버튼 -->
+      <div class="circle-container">
+        <div class="circle">
+          <button id="close">
+            <!--x표시-->
+            <!-- fontawesome가서 아이콘 태그 카피해서 사용 -->
+            <i class="fas fa-times"></i>
+          </button>
+          <button id="open">
+            <!--햄버거(삼선)표시-->
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+      <!-- 글내용 (본문) -->
+      <div class="content">
+        <h1>Amazing Article</h1>
+        <small>Florin Pop</small>
+        <p>
+          <!--lorem이라고 치면 영문으로 더미글자 입력됨-->
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+          saepe! Delectus iste officiis adipisci reiciendis eos quos sunt
+          repellat, perspiciatis nihil similique! Odio officia tenetur est, ea
+          cum accusantium enim.
+        </p>
+        <h3>My Cat</h3>
+        <!--그림제목-->
+        <img
+          src="https://images.unsplash.com/photo-1574158622682-e40e69881006?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          alt="고양이"
+        />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+          perferendis nesciunt temporibus veniam consequatur, minima
+          reprehenderit! Sed alias maxime quae, vero voluptatem, commodi non,
+          modi ipsa aspernatur accusantium recusandae sapiente?
+        </p>
+      </div>
+    </div>
+    <!-- 사진뒤에 숨어있는 하단 메뉴 -->
+    <nav>
+      <ul>
+        <!--클릭할수 있게 a태그 사용 : 주소에 # 넣으면 어디로 안간다는 의미-->
+        <li><i class="fas fa-home"></i><a href="#">Home</a></li>
+        <li><i class="fas fa-user-alt"></i><a href="#">About</a></li>
+        <li><i class="fas fa-envelope"></i><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <script src="script.js"></script>
+  </body>
+</html>
