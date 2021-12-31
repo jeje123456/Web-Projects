@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(90deg, #7d5fff, #dad4f5);
+  font-family: 'Single Day', cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.search {
+  position: relative;
+  height: 50px;
+}
+
+.search .input {
+  background-color: #fff;
+  border: 0;
+  font-size: 18px;
+  padding: 15px;
+  height: 50px;
+  width: 50px;
+  transition: width 0.3s ease;
+}
+
+.btn {
+  background-color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute; /*top,left를 0으로 만들어서 input과 겹치게 만듬*/
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  transition: transform 0.3s ease;
+}
+/*focus:눌렀을때*/
+.btn:focus,
+.input:focus {
+  outline: none;
+}
+/*클래스에 search와 active가 동시에 있을때 input의 CSS 설정*/
+.search.active .input {
+  width: 200px;
+}
+/*클래스에 search와 active가 동시에 있을때 버튼의 CSS 설정*/
+.search.active .btn {
+  transform: translateX(198px);
+}
