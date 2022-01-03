@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'GowunBatang-Regular', serif;
+  display: flex; /* 하위 태그들을 정렬 : CSS로 화면에 배치하는 것(float 안씀) */
+  flex-direction: column; /* 전체 세로 정렬 */
+  justify-content: center; /* 가로 정렬 */
+  align-items: center; /* 세로 정렬 */
+  height: 100vh; /* vh는 화면의 % -> 100vh = 화면의 100% */
+  overflow: hidden; /*  */
+  margin: 0;
+}
