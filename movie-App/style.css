@@ -1,16 +1,121 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+:root {
+  --primary-color: #22254b;
+  --secondary-color: #757680;
+}
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'GowunBatang-Regular', serif;
-  display: flex; /* 하위 태그들을 정렬 : CSS로 화면에 배치하는 것(float 안씀) */
-  flex-direction: column; /* 전체 세로 정렬 */
-  justify-content: center; /* 가로 정렬 */
-  align-items: center; /* 세로 정렬 */
-  height: 100vh; /* vh는 화면의 % -> 100vh = 화면의 100% */
-  overflow: hidden; /*  */
+  background-color: var(--primary-color);
+  font-family: 'Poppins', sans-serif;
   margin: 0;
+}
+
+header {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end; /*맨 오른쪽 정렬 -> 검색창이 오른쪽으로 감*/
+  background-color: var(--secondary-color);
+}
+
+.search {
+  /*영화 검색창*/
+  background-color: transparent; /*투명하게하면 뒤에있는 바탕색이 나타남*/
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+}
+
+/*search 인풋창 안의 placeholder 글씨*/
+.search::placeholder {
+  color: #e5e6f5;
+}
+
+/* 입력창을 마우스로 클릭했을때 */
+.search:focus {
+  outline: none;
+  background-color: var(--primary-color);
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap; /*영화가 여러개이면 자동으로 줄 맞춰서 내려옴*/
+  justify-content: center;
+}
+
+.movie {
+  width: 300px;
+  margin: 1rem;
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  position: relative; /*기준*/
+  overflow: hidden; /* movie 클래스 안에 있는것들이 범위 벗어나면 안보이게 */
+  border-radius: 3px;
+}
+
+.movie img {
+  width: 100%;
+  height: 450px;
+}
+
+/* 영화제목칸 */
+.movie-info {
+  color: #eee;
+  display: flex;
+  align-items: center; /*세로 가운데 정렬*/
+  justify-content: space-between; /*영화제목과 평점사이에 간격주기*/
+  gap: 0.2rem;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+}
+
+.movie-info h3 {
+  margin: 0 auto;
+}
+
+/* 점수 칸 */
+.movie-info span {
+  background-color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+/* 클래스 점수에 따라 색을 다르게 입력 */
+.movie-info span.green {
+  color: lightgreen;
+}
+
+.movie-info span.orange {
+  color: orange;
+}
+
+.movie-info span.red {
+  color: red;
+}
+
+/* 상세보기 */
+.overview {
+  background-color: #fff;
+  padding: 2rem;
+  position: absolute; /*위에 떠서 겹치게됨*/
+  left: 0;
+  bottom: 0;
+  right: 0;
+  max-height: 100%;
+  transform: translateY(101%); /*아래로 101% 이동(movie 밖이라서 안보임)*/
+  overflow-y: auto;
+  transition: transform 0.3s ease-in; /*transform 속성의 변화 시간*/
+} /*transform 안넣으면 모든 변화가 0.3초 걸림*/
+
+/*movie에 마우스 올리면 오버뷰 클래스가 원래 위치로 이동*/
+.movie:hover .overview {
+  transform: translateY(0);
 }
