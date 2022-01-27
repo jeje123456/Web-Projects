@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>jQuery - 셀렉터</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="js/jquery-3.6.0.min.js"></script> -->
+    <style>
+      body {
+        font-size: 17px;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        line-height: 1.5em;
+      }
+      header {
+        background: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 4px solid black;
+        margin-bottom: 10px;
+      }
+      #container {
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>jQuery 시작하기</h1>
+    </header>
+    <div id="container">
+      <h3>마우스 이벤트</h3>
+      <button id="btn1">버튼 1</button>
+      <button id="btn2">버튼 2</button>
+      <button id="btn3">버튼 3</button>
+      <button id="btn4">버튼 4</button>
+      <button id="btn5">버튼 5</button>
+      <p class="para1">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus dolorum eius quasi perspiciatis eaque facere odit in aliquam tempora vitae possimus optio
+        exercitationem ad, veniam illo. Iusto in accusantium consectetur.
+      </p>
+      <hr />
+      <h1 id="coords"></h1>
+      <hr />
+      <form action="">
+        <!-- label의 for 속성을 통해서 label을 클릭하면 해당태그 선택됨 -->
+        <label for="name">Name</label><br />
+        <input type="text" id="name" name="name" />
+        <br />
+        <label for="email">Email</label><br />
+        <input type="email" id="email" name="email" />
+        <br />
+        <label for="gender">Gender</label><br />
+        <select name="gender" id="gender">
+          <option value="mail">남성</option>
+          <option value="femail">여성</option>
+          <option value="gender" selected>성별</option>
+        </select>
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <script>
+      // $('#btn1').on('click', function () {
+      //   alert('버튼 클릭!');
+      // });
+      // $('#btn1').click(function () {
+      //   alert('버튼 클릭함!');
+      // });
+      //script가 html보다 위에 있으면 실행 안됨
+      $(document).ready(function () {
+        //html이 준비 된 후에 함수를 실행
+        $('#btn1').click(function () {
+          $('.para1').hide();
+        });
+        $('#btn2').click(function () {
+          $('.para1').show();
+        });
+        // on('이벤트 종류', 실행할 함수)
+        $('#btn3').on('dblclick', function () {
+          $('.para1').toggle();
+        });
+        // hover는 'mouseenter' / 'mouseleave' 가 둘다 들어 있어서 따로 설정하면 사용 가능
+        $('#btn4').on('mouseenter', function () {
+          $('.para1').hide();
+        });
+        $('#btn4').on('mouseleave', function () {
+          $('.para1').show();
+        });
+
+        $('#btn5').hover(function () {
+          $('.para1').toggle();
+        });
+
+        // 마우스의 x,y 좌표 출력
+        // $(document).on('mousemove', function (e) {
+        //   //console.log(e.clientX, e.clientY);
+        // $('#coords').text('X좌표:' + e.clientX + ' Y좌표:' + e.clientY);
+        // });
+
+        $('input').focus(function () {
+          // 인풋창을 클릭했을때
+          $(this).css('background-color', 'pink');
+          // this = 이벤트가 발생한 객체(현재 선택된 태그 요소)
+        });
+        $('input').blur(function () {
+          // 인풋창이 선택 해제되었을때
+          $(this).css('background-color', 'white');
+        });
+
+        $('select').change(function (e) {
+          // change : 선택을 바꿨을때
+          alert('바꼈음');
+          alert(e.target.value);
+        });
+      });
+    </script>
+  </body>
+</html>

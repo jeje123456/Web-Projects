@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트에서 사용</title>
+    <!-- favicon 에러 삭제 -->
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+  </head>
+  <body>
+    <h1>자바스크립트에서 사용</h1>
+    <div id="output"></div>
+    <!-- 객체는 const 변수는 let 사용 -->
+    <script type="text/javascript">
+      const person = {
+        name: 'Joe',
+        'last Name': 'Miller',
+        car1: 'Mustang',
+        car2: 'F150',
+      };
+      let str1 = 'car';
+      let cnt = 1;
+      // 객체(object)의 값에 접근 방법 1. person.car1 2.person["car1"]
+      console.log(person[str1 + cnt]); //car1 출력
+      cnt++;
+      console.log(person[str1 + cnt]); //car2 출력
+
+      //myobj 객체 안에 friends 키값에는 배열이 저장
+      const myObj = {
+        friends: [
+          {
+            firstName: 'Mike',
+            lastName: 'Jones',
+          },
+          {
+            firstName: 'John',
+            lastName: 'Smith',
+          },
+          {
+            firstName: 'Laurence',
+            lastName: 'Svekis',
+          },
+          {
+            firstName: 'Alice',
+            lastName: 'James',
+          },
+        ],
+      };
+
+      const users = myObj.friends; //배열
+      let html = ''; // 공백html
+      // x = 1개의 객체, Number(x) = 인덱스 번호
+      for (let x in users) {
+        // html에 한명의 친구들의 성과 이름을 계속 더함
+        html += Number(x) + 1 + ' . ' + users[x].firstName + ' ' + users[x].lastName + '<br>'; //br로 한명마다 띄움
+        //html에는 문자열로 성, 이름, br태그가 들어감
+      }
+      //id = output인 태그에 innerHTML로 출력
+      //innerHTML은 문자열에 태그도 포함해서 이 태그의 자식으로 넣음
+      document.getElementById('output').innerHTML = html;
+    </script>
+  </body>
+</html>

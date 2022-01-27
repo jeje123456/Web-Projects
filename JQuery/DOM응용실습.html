@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>jQuery - 셀렉터</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="js/jquery-3.6.0.min.js"></script> -->
+    <style>
+      body {
+        font-size: 17px;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        line-height: 1.5em;
+      }
+      header {
+        background: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 4px solid black;
+        margin-bottom: 10px;
+      }
+      #container {
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+      }
+      .myclass {
+        color: skyblue;
+        background: gray;
+        font-size: 2em;
+        font-family: cursive;
+        font-weight: 900;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>jQuery 시작하기</h1>
+    </header>
+    <div id="container">
+      <button id="btn1">버튼 1</button>
+      <p class="para1">첫번째 문장입니다.</p>
+      <p class="para2">두번째 문장입니다.</p>
+      <div id="myDiv"></div>
+
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+      </ul>
+    </div>
+
+    <script>
+      // 객체 형식으로 여러개의 css를 넣을수 있다.
+      $('p.para1').css({ color: 'red', background: 'yellow' });
+      // css 속성이 많을 경우 클래스를 추가하여 css 적용
+      $('p.para2').addClass('myclass');
+      // 이벤트에 클래스 토글
+      $('#btn1').on('click', function () {
+        $('p.para2').toggleClass('myclass');
+      });
+
+      // 텍스트 내용 입력 & html+텍스트 수정
+      // $('#myDiv').text('문자열 내용 입력');
+      $('#myDiv').html('<h3>첫번째</h3><h5>두번째</h5>');
+
+      // 태그를 추가하는 방법 append prepend
+      //append : 맨 마지막으로 추가됨
+      $('ul').append('<li>append 추가</li>');
+      //prepend : 맨 처음에 추가됨
+      $('ul').prepend('<li>prepend 추가</li>');
+
+      // 제이쿼리로 배열 처리 반복문
+      const 과일 = ['사과', '당근', '배', '수박'];
+      $.each(과일, function (i, val) {
+        $('ul').append('<li>' + val + '</li>');
+      });
+      // 자바스크립트로 추가하기
+      과일.forEach(function (val) {
+        $('ul').append('<li>' + val + '</li>');
+      });
+      // 제이쿼리로 가능한것은 자바스크립트로 다 가능
+      // 제이쿼리와 자바스크립트 동시에 사용 가능
+    </script>
+  </body>
+</html>
