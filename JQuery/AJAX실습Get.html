@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- favicon 에러 삭제 -->
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <title>jQuery - AJAX</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="js/jquery-3.6.0.min.js"></script> -->
+    <style>
+      body {
+        font-size: 17px;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f4f4;
+        line-height: 1.5em;
+      }
+      header {
+        background: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 4px solid black;
+        margin-bottom: 10px;
+      }
+      #container {
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>jQuery - AJAX</h1>
+    </header>
+    <div id="container">
+      <div id="results"></div>
+    </div>
+
+    <script>
+      // 데이터를 받을때
+      $.ajax({
+        method: 'GET',
+        url: 'https://jsonplaceholder.typicode.com/posts',
+        dataType: 'json', // 받을 데이터 타입 = json
+        // data: {보낼 데이터}
+      }).done(function (data) {
+        // 요청 성공시 결과 데이터 -> 배열로 정리된 데이터 확인 가능
+        // console.log(data);
+        // 반복문 each : i = 인덱스번호 item = 한개의 아이템
+        $.each(data, function (i, item) {
+          // 변수 입력시 ` `와 ${변하는 데이터} 사용
+          $('#results').append(`<h3>${item.title}</h3><p>${item.body}</p>`);
+        });
+      });
+    </script>
+  </body>
+</html>
